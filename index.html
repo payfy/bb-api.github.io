@@ -1,0 +1,574 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Proposta de Api Fatura e Cartões BB cliente PJ</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>Proposta de Api Fatura e Cartões BB cliente PJ</h1>
+    <div class="app-desc">Api para consumo de dados da base do bb para implementação do sistema payfy</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#companyMciBillingUnitIdCardsGet"><code><span class="http-method">get</span> /{companyMci}/{billingUnitId}/cards</code></a></li>
+  <li><a href="#companyMciBillingUnitIdTransactionsGet"><code><span class="http-method">get</span> /{companyMci}/{billingUnitId}/transactions</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="companyMciBillingUnitIdCardsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{companyMci}/{billingUnitId}/cards</code></pre></div>
+    <div class="method-summary">Consultar Cartões atrelados a uma unidade de faturamento (<span class="nickname">companyMciBillingUnitIdCardsGet</span>)</div>
+    <div class="method-notes">Busca todos os cartões(virtuais e fisicos) atrelados a unidade de faturamento.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">companyMci (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; identificador da empresa no ambiente bb </div>      <div class="param">billingUnitId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; identificador da unidade de faturamento no ambiente bb </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">pageSize (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; tamanho da pagina retornada na consulta, o valor deve ser entre 1 e 1000 default: 100 </div>      <div class="param">pageNumber (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; index de pagina da consulta, deve ser um valor positivo default: 1 </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : [ {
+    "cardholderCpf" : "123.123.123-12",
+    "cardholderId" : "2be46b95-0fcc-423d-aec7-84831c23fe32",
+    "modality" : "BB Ourocard Empresarial Visa",
+    "billingMode" : "postpaid",
+    "billingUnitId" : "c0798339-6d65-4bb4-a7cd-89987931ff4f",
+    "monthLimit" : 100000,
+    "type" : "virtual",
+    "companyMci" : "910500051",
+    "availableLimit" : 9011,
+    "nameInCard" : "MATHEUS C ANZZULIN",
+    "id" : "a0477438-ddaf-4b8d-9def-32a543ee258f",
+    "cardNumber" : "4674819004911110",
+    "status" : "entregue",
+    "expirationDate" : "11/25"
+  }, {
+    "cardholderCpf" : "123.123.123-12",
+    "cardholderId" : "2be46b95-0fcc-423d-aec7-84831c23fe32",
+    "modality" : "BB Ourocard Empresarial Visa",
+    "billingMode" : "postpaid",
+    "billingUnitId" : "c0798339-6d65-4bb4-a7cd-89987931ff4f",
+    "monthLimit" : 100000,
+    "type" : "virtual",
+    "companyMci" : "910500051",
+    "availableLimit" : 9011,
+    "nameInCard" : "MATHEUS C ANZZULIN",
+    "id" : "a0477438-ddaf-4b8d-9def-32a543ee258f",
+    "cardNumber" : "4674819004911110",
+    "status" : "entregue",
+    "expirationDate" : "11/25"
+  } ],
+  "meta" : {
+    "totalRecords" : 140,
+    "pageNumber" : 1,
+    "requestDateTime" : "2024-06-07T10:00:00Z",
+    "totalPages" : 14,
+    "pageSize" : 10
+  },
+  "links" : {
+    "next" : "https://bb.com.br/123/456/cards?limit=10&page=2",
+    "last" : "https://bb.com.br/123/456/cards?limit=10&page=14",
+    "prev" : "prev",
+    "self" : "https://bb.com.br/123/456/cards?limit=10&page=1",
+    "first" : "https://bb.com.br/123/456/cards?limit=10&page=1"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Lista de Cartões paginada
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="companyMciBillingUnitIdTransactionsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{companyMci}/{billingUnitId}/transactions</code></pre></div>
+    <div class="method-summary">Consultar transações atrelados a uma unidade de faturamento (<span class="nickname">companyMciBillingUnitIdTransactionsGet</span>)</div>
+    <div class="method-notes">Busca transações atreladas a unidade de faturamento.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">companyMci (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; identificador da empresa no ambiente bb </div>      <div class="param">billingUnitId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; identificador da unidade de faturamento no ambiente bb </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">pageSize (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; tamanho da pagina retornada na consulta, o valor deve ser entre 1 e 1000 default: 100 </div>      <div class="param">pageNumber (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; index de pagina da consulta, deve ser um valor positivo default: 1 </div>      <div class="param">cardId (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; filtro por cartão </div>      <div class="param">startDate (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; filtro de data inicial da consulta em formato ISO 8601 </div>      <div class="param">endDate (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; filtro de data final da consulta em formato ISO 8601 </div>      <div class="param">type (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; filtro por tipo de transação </div>      <div class="param">cleared (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; filtro por transações que já ocorreram o conciliamento ou não </div>      <div class="param">cardholderCpf (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; filtro por cpf do portador do cartão </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_1">inline_response_200_1</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : [ {
+    "date" : "2024-06-31T00:00:00Z",
+    "cardholderCpf" : "123.123.123-12",
+    "transactionCurrency" : 986,
+    "cardholderId" : "2be46b95-0fcc-423d-aec7-84831c23fe32",
+    "merchantCity" : "são paulo",
+    "authorizationCode" : 220725,
+    "billingUnitId" : "113613009",
+    "billingValue" : 2099,
+    "description" : "HIPER 20               LAGES         BR",
+    "type" : "credit",
+    "merchantState" : "são paulo",
+    "invoiceDueDate" : "2024-06-31T00:00:00Z",
+    "costCenterId" : "12",
+    "billingCurrency" : 986,
+    "merchantDocument" : "123.123.123-11",
+    "id" : "a0477438-ddaf-4b8d-9def-32a543ee258f",
+    "merchantCountry" : "brasil",
+    "transactionValue" : 2099,
+    "merchantMcc" : 123,
+    "acquirerCode" : 0,
+    "cardNumber" : "4674819004911110",
+    "merchantCep" : "90455-123"
+  }, {
+    "date" : "2024-06-31T00:00:00Z",
+    "cardholderCpf" : "123.123.123-12",
+    "transactionCurrency" : 986,
+    "cardholderId" : "2be46b95-0fcc-423d-aec7-84831c23fe32",
+    "merchantCity" : "são paulo",
+    "authorizationCode" : 220725,
+    "billingUnitId" : "113613009",
+    "billingValue" : 2099,
+    "description" : "HIPER 20               LAGES         BR",
+    "type" : "credit",
+    "merchantState" : "são paulo",
+    "invoiceDueDate" : "2024-06-31T00:00:00Z",
+    "costCenterId" : "12",
+    "billingCurrency" : 986,
+    "merchantDocument" : "123.123.123-11",
+    "id" : "a0477438-ddaf-4b8d-9def-32a543ee258f",
+    "merchantCountry" : "brasil",
+    "transactionValue" : 2099,
+    "merchantMcc" : 123,
+    "acquirerCode" : 0,
+    "cardNumber" : "4674819004911110",
+    "merchantCep" : "90455-123"
+  } ],
+  "meta" : {
+    "totalRecords" : 140,
+    "pageNumber" : 1,
+    "requestDateTime" : "2024-06-07T10:00:00Z",
+    "totalPages" : 14,
+    "pageSize" : 10
+  },
+  "links" : {
+    "next" : "https://bb.com.br/123/456/cards?limit=10&page=2",
+    "last" : "https://bb.com.br/123/456/cards?limit=10&page=14",
+    "prev" : "prev",
+    "self" : "https://bb.com.br/123/456/cards?limit=10&page=1",
+    "first" : "https://bb.com.br/123/456/cards?limit=10&page=1"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Lista de Transações paginada
+        <a href="#inline_response_200_1">inline_response_200_1</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#card"><code>card</code></a></li>
+    <li><a href="#inline_response_200"><code>inline_response_200</code></a></li>
+    <li><a href="#inline_response_200_1"><code>inline_response_200_1</code></a></li>
+    <li><a href="#links"><code>links</code></a></li>
+    <li><a href="#meta"><code>meta</code></a></li>
+    <li><a href="#transaction"><code>transaction</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="card"><code>card</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> id unico identificador do cartão no bb </div>
+          <div class="param-desc"><span class="param-type">example: a0477438-ddaf-4b8d-9def-32a543ee258f</span></div>
+<div class="param">cardholderId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> id unico identificador do portador do cartão no bb </div>
+          <div class="param-desc"><span class="param-type">example: 2be46b95-0fcc-423d-aec7-84831c23fe32</span></div>
+<div class="param">companyMci (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> identificador unico da empresa no bb </div>
+          <div class="param-desc"><span class="param-type">example: 910500051</span></div>
+<div class="param">cardNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> numero no cartão </div>
+          <div class="param-desc"><span class="param-type">example: 4674819004911110</span></div>
+<div class="param">billingUnitId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> id unico identificador da unidade de faturamento no bb </div>
+          <div class="param-desc"><span class="param-type">example: c0798339-6d65-4bb4-a7cd-89987931ff4f</span></div>
+<div class="param">monthLimit (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> limite mensal do cartão em centavos </div>
+          <div class="param-desc"><span class="param-type">example: 100000</span></div>
+<div class="param">availableLimit (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> limite disponivel do cartão em centavos </div>
+          <div class="param-desc"><span class="param-type">example: 9011</span></div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> estado do cartão </div>
+          <div class="param-desc"><span class="param-type">example: entregue</span></div>
+<div class="param">nameInCard (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> nome impresso no cartão </div>
+          <div class="param-desc"><span class="param-type">example: MATHEUS C ANZZULIN</span></div>
+<div class="param">expirationDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> data de expiração no cartão </div>
+          <div class="param-desc"><span class="param-type">example: 11/25</span></div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> modelo de cartão </div>
+          <div class="param-desc"><span class="param-type">example: virtual</span></div>
+<div class="param">modality (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> modalidade do cartão </div>
+          <div class="param-desc"><span class="param-type">example: BB Ourocard Empresarial Visa</span></div>
+<div class="param">billingMode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> modelo de cobrança </div>
+          <div class="param-desc"><span class="param-type">example: postpaid</span></div>
+<div class="param">cardholderCpf (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> cpf do portador do cartão </div>
+          <div class="param-desc"><span class="param-type">example: 123.123.123-12</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200"><code>inline_response_200</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#links">links</a></span>  </div>
+<div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#meta">meta</a></span>  </div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#card">array[card]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_1"><code>inline_response_200_1</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#links">links</a></span>  </div>
+<div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#meta">meta</a></span>  </div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#transaction">array[transaction]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="links"><code>links</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">self (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> url para a pagina atual da consulta </div>
+          <div class="param-desc"><span class="param-type">example: https://bb.com.br/123/456/cards?limit&#x3D;10&amp;page&#x3D;1</span></div>
+<div class="param">prev (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> url para a pagina anterior da consulta </div>
+<div class="param">next (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> url para a pagina posterior da consulta </div>
+          <div class="param-desc"><span class="param-type">example: https://bb.com.br/123/456/cards?limit&#x3D;10&amp;page&#x3D;2</span></div>
+<div class="param">last (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> url para a ultima pagina da consulta </div>
+          <div class="param-desc"><span class="param-type">example: https://bb.com.br/123/456/cards?limit&#x3D;10&amp;page&#x3D;14</span></div>
+<div class="param">first (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> url para a primeira pagina da consulta </div>
+          <div class="param-desc"><span class="param-type">example: https://bb.com.br/123/456/cards?limit&#x3D;10&amp;page&#x3D;1</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="meta"><code>meta</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">totalRecords (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> numero total de resultados na consulta </div>
+          <div class="param-desc"><span class="param-type">example: 140</span></div>
+<div class="param">totalPages (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> numero total de paginas na consulta </div>
+          <div class="param-desc"><span class="param-type">example: 14</span></div>
+<div class="param">requestDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> data da requisição da consulta em formato ISO 8601 </div>
+          <div class="param-desc"><span class="param-type">example: 2024-06-07T10:00:00Z</span></div>
+<div class="param">pageNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> numero da pagina atual consulta </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+<div class="param">pageSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> tamanho da página na consulta </div>
+          <div class="param-desc"><span class="param-type">example: 10</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="transaction"><code>transaction</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> id unico identificador da transação no bb </div>
+          <div class="param-desc"><span class="param-type">example: a0477438-ddaf-4b8d-9def-32a543ee258f</span></div>
+<div class="param">costCenterId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> id unico identificador da transação no bb </div>
+          <div class="param-desc"><span class="param-type">example: 12</span></div>
+<div class="param">billingUnitId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> id unico identificador da transação no bb </div>
+          <div class="param-desc"><span class="param-type">example: 113613009</span></div>
+<div class="param">cardholderId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> id do portador do cartão que realizou a transação no bb </div>
+          <div class="param-desc"><span class="param-type">example: 2be46b95-0fcc-423d-aec7-84831c23fe32</span></div>
+<div class="param">cardholderCpf (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> cpf do portador do cartão </div>
+          <div class="param-desc"><span class="param-type">example: 123.123.123-12</span></div>
+<div class="param">billingValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> valor em centavos da transação que foram conciliados </div>
+          <div class="param-desc"><span class="param-type">example: 2099</span></div>
+<div class="param">billingCurrency (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> código da moeda usada na fatura </div>
+          <div class="param-desc"><span class="param-type">example: 986</span></div>
+<div class="param">transactionValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> valor local em centavos da transação </div>
+          <div class="param-desc"><span class="param-type">example: 2099</span></div>
+<div class="param">transactionCurrency (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> código da moeda da transação </div>
+          <div class="param-desc"><span class="param-type">example: 986</span></div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> tipo da movimentação </div>
+          <div class="param-desc"><span class="param-type">example: credit</span></div>
+<div class="param">cardNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> numero do cartão que realizou a movimentação </div>
+          <div class="param-desc"><span class="param-type">example: 4674819004911110</span></div>
+<div class="param">invoiceDueDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> data do vencimento da fatura em qual essa transação se encontra em formato ISO 8601 </div>
+          <div class="param-desc"><span class="param-type">example: 2024-06-31T00:00:00Z</span></div>
+<div class="param">acquirerCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> código da adquirente que realizou a transação </div>
+<div class="param">merchantCep (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> cep de onde ocorreu a transação </div>
+          <div class="param-desc"><span class="param-type">example: 90455-123</span></div>
+<div class="param">merchantCity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> cidade de onde ocorreu a transação </div>
+          <div class="param-desc"><span class="param-type">example: são paulo</span></div>
+<div class="param">merchantState (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> estado de onde ocorreu a transação </div>
+          <div class="param-desc"><span class="param-type">example: são paulo</span></div>
+<div class="param">merchantCountry (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> país de onde ocorreu a transação </div>
+          <div class="param-desc"><span class="param-type">example: brasil</span></div>
+<div class="param">merchantMcc (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> código de mcc da adiquirente </div>
+          <div class="param-desc"><span class="param-type">example: 123</span></div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> descrição da transação </div>
+          <div class="param-desc"><span class="param-type">example: HIPER 20               LAGES         BR</span></div>
+<div class="param">authorizationCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> código de autorização da transação </div>
+          <div class="param-desc"><span class="param-type">example: 220725</span></div>
+<div class="param">merchantDocument (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> documento do mercador </div>
+          <div class="param-desc"><span class="param-type">example: 123.123.123-11</span></div>
+<div class="param">date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> data em que ocorreu a transação em formato ISO 8601 </div>
+          <div class="param-desc"><span class="param-type">example: 2024-06-31T00:00:00Z</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
